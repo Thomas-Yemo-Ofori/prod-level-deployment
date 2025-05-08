@@ -1,0 +1,14 @@
+project_name = "prod-level-deployment"
+environments = ["production", "staging", "development"]
+regions = [ "us-west-2", "us-east-1", "ca-central-1" ]
+vpc_name = "prod-level-vpc"
+vpc_cidr = "10.0.0.0/16"
+vpc_tenacy = "true"
+boolean = [ true, false ]
+availability_zones = [ "us-west-2a", "us-west-2b", "us-west-2c" ]
+public_subnet_names = [ "public_subnet_1a", "public_subnet_1b" ]
+public_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnet_names = [ "private_subnet_1a", "private_subnet_1b" ]
+private_subnet_cidrs = ["10.0.3.0/24", "10.0.4.0/24"]
+db_subnet_names = [ "db_subnet_1a", "db_subnet_1b" ]
+db_subnet_cidrs = ["10.0.5.0/24", "10.0.6.0/24"]

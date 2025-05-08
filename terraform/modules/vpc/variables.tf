@@ -11,16 +11,16 @@ variable "project_name" {
 ###################################################
 ############## Deployment Environments ################ 
 ###################################################
-variable "environment" {
+variable "environments" {
   description = "This are the various environments"
-  type        = list(any)
+  type        = list(string)
   default     = ["production", "staging", "development"]
 }
 
 variable "regions" {
   description = "This are the various regions"
-  type        = list(any)
-  default     = ["us-east-1a", "us-east-1b", "us-east-1c"]
+  type        = list(string)
+  default     = ["us-west-2", "us-east-1", "ca-central-1"]
 }
 
 ###################################################
@@ -41,14 +41,61 @@ variable "vpc_cidr" {
 variable "vpc_tenacy" {
   description = "This is the VPC tenancy"
   type        = string
-  default     = "true"
+  default     = "default"
+}
+
+variable "boolean" {
+  description = "This is a boolean value"
+  type        = list(bool)
+  default     = [true, false]
+}
+
+
+###################################################
+################## Availabliy Zones  #################### 
+###################################################
+variable "availability_zones" {
+  description = "This is the availability zones"
+  type        = list(string)
+  default     = ["us-west-2a", "us-west-2b", "us-west-2c"]
 }
 
 ###################################################
-################ S3 Bucket for Statefile ################## 
+################## Subnet Groups  ##################### 
 ###################################################
-variable "s3_bucket_name" {
-  description = "This is the name of the s# bucket for statefile"
-  type        = string
-  default     = "prod-s3-bucket"
+
+variable "public_subnet_names" {
+  description = "This is the public subnet cidr names"
+  type        = list(string)
+  default     = ["public_subnet_1a", "public_subnet_1b"]
+}
+
+variable "public_subnet_cidrs" {
+  description = "This is the public subnet cidr block"
+  type        = list(string)
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+
+variable "private_subnet_names" {
+  description = "This is the private subnet cidr names"
+  type        = list(string)
+  default     = ["private_subnet_1a", "private_subnet_1b"]
+}
+
+variable "private_subnet_cidrs" {
+  description = "This is the private subnet cidr block"
+  type        = list(string)
+  default     = ["10.0.3.0/24", "10.0.4.0/24"]
+}
+
+variable "db_subnet_names" {
+  description = "This is the db subnet cidr names"
+  type        = list(string)
+  default     = ["db_subnet_1a", "db_subnet_1b"]
+}
+
+variable "db_subnet_cidrs" {
+  description = "This is the db subnet cidr block"
+  type        = list(string)
+  default     = ["10.0.5.0/24", "10.0.6.0/24"]
 }
