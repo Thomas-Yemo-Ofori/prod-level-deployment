@@ -41,3 +41,47 @@ resource "aws_subnet" "public_subnet_1b" {
     Project_Name = var.project_name
   }
 }
+
+resource "aws_subnet" "private_subnet_1a" {
+  vpc_id                  = aws_vpc.prod-vpc.id
+  cidr_block              = var.private_subnet_cidrs[0]
+  availability_zone       = var.availability_zones[0]
+  tags = {
+    Name        = "${var.private_subnet_names[0]}-${var.availability_zones[0]}"
+    Environment = var.environments[0]
+    Project_Name = var.project_name
+  }
+}
+
+resource "aws_subnet" "private_subnet_1b" {
+  vpc_id                  = aws_vpc.prod-vpc.id
+  cidr_block              = var.private_subnet_cidrs[1]
+  availability_zone       = var.availability_zones[1]
+  tags = {
+    Name        = "${var.private_subnet_names[1]}-${var.availability_zones[1]}"
+    Environment = var.environments[0]
+    Project_Name = var.project_name
+  }
+}
+
+resource "aws_subnet" "db_subnet_1a" {
+  vpc_id                  = aws_vpc.prod-vpc.id
+  cidr_block              = var.db_subnet_cidrs[0]
+  availability_zone       = var.availability_zones[0]
+  tags = {
+    Name        = "${var.private_subnet_names[0]}-${var.availability_zones[0]}"
+    Environment = var.environments[0]
+    Project_Name = var.project_name
+  }
+}
+
+resource "aws_subnet" "db_subnet_1b" {
+  vpc_id                  = aws_vpc.prod-vpc.id
+  cidr_block              = var.db_subnet_cidrs[1]
+  availability_zone       = var.availability_zones[1]
+  tags = {
+    Name        = "${var.private_subnet_names[1]}-${var.availability_zones[1]}"
+    Environment = var.environments[0]
+    Project_Name = var.project_name
+  }
+}
